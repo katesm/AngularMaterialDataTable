@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatInputModule, MatFormFieldModule, MatTableModule, MatPaginatorModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatInputModule, MatFormFieldModule, MatTableModule, MatPaginatorModule, MatProgressSpinnerModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { PeopleService } from './people-service';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatButtonModule, MatCheckboxModule, MatToolbarModule,MatCardModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatTableModule,MatPaginatorModule
+    MatButtonModule, MatCheckboxModule, MatToolbarModule,MatCardModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatTableModule,MatPaginatorModule, MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [ PeopleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

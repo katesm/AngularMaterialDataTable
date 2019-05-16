@@ -1,38 +1,60 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <h1>Data Table example </h1>
+
 <div class="example-container mat-elevation-z8">
+    <div class="spinner-container" *ngIf="loading">
+        <div>
+          <mat-spinner></mat-spinner>
+        </div>
+  
+      </div>
+
+
   <mat-table #table [dataSource]="dataSource">
+   
+
 
     <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    <ng-container matColumnDef="personId">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.personId}} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef> First </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+    <ng-container matColumnDef="middleName">
+      <mat-header-cell *matHeaderCellDef> Middle </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.middleName}} </mat-cell>
     </ng-container>
 
     <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef> Last </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dob">
+      <mat-header-cell *matHeaderCellDef> DOB </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.dob}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="ssn">
+      <mat-header-cell *matHeaderCellDef> SSN </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.ssn.substring(element.ssn.length - 4,element.ssn.length)}}
+      </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
-<!-- paginator has a page event we need to subscribe to !!! -->
-  <mat-paginator #paginator (page)="pageEvent($event)" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"
-    [showFirstLastButtons]="true">
+  <!-- paginator has a page event we need to subscribe to !!! -->
+  <mat-paginator #paginator (page)="pageEvent($event)" [length]="resultsLength" [pageSize]="30"
+    [pageSizeOptions]="[5, 10, 20, 30]" [showFirstLastButtons]="true">
 
   </mat-paginator>
 </div>

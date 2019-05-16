@@ -8,3 +8,16 @@
     overflow: auto;
     max-height: 500px;
   }
+  .spinner-container {
+    margin: auto;
+   width: 50%;
+   padding-top: 5%;
+   padding-left: 45%;
+   position: fixed;
+   
+}
+
+.spinner-container mat-spinner {
+    margin: auto 0 auto 0;
+    
+}
